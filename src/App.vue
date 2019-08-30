@@ -5,33 +5,33 @@
         <form @submit.prevent="onSubmit" class="p-2">
           <div class="flex mb-2">
             <div class="flex items-center">
-              <input v-model="inputX5" class="w-16 h-8 px-1 text-sm rounded" type="text">
+              <input v-model.number="inputX5" class="w-16 h-8 px-1 text-sm rounded" type="text">
               <label class="mx-1">x⁵ +</label>
             </div>
             <div class="flex items-center">
-              <input v-model="inputX4" class="w-16 h-8 px-1 text-sm rounded" type="text">
+              <input v-model.number="inputX4" class="w-16 h-8 px-1 text-sm rounded" type="text">
               <label class="mx-1">x⁴ +</label>
             </div>
             <div class="flex items-center">
-              <input v-model="inputX3" class="w-16 h-8 px-1 text-sm rounded" type="text">
+              <input v-model.number="inputX3" class="w-16 h-8 px-1 text-sm rounded" type="text">
               <label class="mx-1">x³ +</label>
             </div>
             <div class="flex items-center">
-              <input v-model="inputX2" class="w-16 h-8 px-1 text-sm rounded" type="text">
+              <input v-model.number="inputX2" class="w-16 h-8 px-1 text-sm rounded" type="text">
               <label class="mx-1">x² +</label>
             </div>
             <div class="flex items-center">
-              <input v-model="inputX1" class="w-16 h-8 px-1 text-sm rounded" type="text">
+              <input v-model.number="inputX1" class="w-16 h-8 px-1 text-sm rounded" type="text">
               <label class="mx-1">x +</label>
             </div>
             <div class="flex items-center">
-              <input v-model="inputX" class="w-16 h-8 px-1 text-sm rounded" type="text">
+              <input v-model.number="inputX" class="w-16 h-8 px-1 text-sm rounded" type="text">
               <label class="mx-1"></label>
             </div>
           </div>
           <div class="flex items-center my-6">
             <label class="mr-2">Epsilon</label>
-            <input v-model="epsilon" class="w-16 h-8 px-1 text-sm rounded" type="text">
+            <input v-model.number="epsilon" class="w-16 h-8 px-1 text-sm rounded" type="text">
           </div>
 
           <button class="border rounded py-1 px-2" type="submit">Enviar</button>
@@ -73,7 +73,6 @@
       </div>
     </div>
 
-
   </div>
 </template>
 
@@ -96,6 +95,7 @@
 
     methods: {
       async onSubmit() {
+        this.data = []
         const BASE_URL = 'https://calculo-numerico.herokuapp.com/api/calculo-numerico'
         const reqBody = {
           "entradaSeis": this.inputX5,
