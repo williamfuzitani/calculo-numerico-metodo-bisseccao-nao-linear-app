@@ -46,7 +46,7 @@
               <th class="p-2 w-1/4">Resultado da Funcao</th>
             </tr>
           </thead>
-          <tbody class="flex flex-col items-center w-full">
+          <tbody v-if="data.length > 0" class="flex flex-col items-center w-full">
             <tr v-for="(item, index) in data" :key="index" class="flex justify-center w-full border-b">
               <td class="p-2 w-1/4">[ {{ item.intervalo.a }}, {{ item.intervalo.a }} ]</td>
               <td class="p-2 w-1/4">{{ item.raizDaFuncao }}</td>
@@ -63,10 +63,10 @@
               <th class="p-2 w-1/4">b</th>
             </tr>
           </thead>
-          <tbody class="flex flex-col items-center w-full">
-            <tr v-for="(item, index) in data" :key="index" class="flex justify-center w-full border-b">
-              <td class="p-2 w-1/4">{{ item.intervalosIniciais[0].a }}</td>
-              <td class="p-2 w-1/4">{{ item.intervalosIniciais[0].b }}</td>
+          <tbody v-if="data.length > 0" class="flex flex-col items-center w-full">
+            <tr class="flex justify-center w-full border-b">
+              <td class="p-2 w-1/4">{{ data[0].intervalosIniciais[0].a }}</td>
+              <td class="p-2 w-1/4">{{ data[0].intervalosIniciais[0].b }}</td>
             </tr>
           </tbody>
         </table>
@@ -89,7 +89,7 @@
         inputX1: null,
         inputX: null,
         epsilon: null,
-        data: null
+        data: []
       }
     },
 
